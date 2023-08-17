@@ -1,24 +1,32 @@
-let inputs = document.querySelectorAll('input')
-console.log(inputs)
-let formulario = document.querySelector('form')
-console.log(formulario)
-let avisos = document.querySelectorAll('.opacity')
-console.log(avisos)
+//Preciso pegar os inputs e o textArea
+//Preciso pegar o botão
 
+const inputs = document.querySelectorAll('.form-envio');
+const botao = document.querySelector('.btn');
+const error = document.querySelectorAll('.error-message');
 
+//Criar a função do botão
+// Adicionar evento de click ao botão
 
-formulario.addEventListener('submit', (event) => {
-    event.preventDefault();
+botao.addEventListener('click', (event) => {
 
+    //Usado para interceptar error de submit
+    event.preventDefault(); 
+
+    //Criar a função para percorrer cada item do input
     inputs.forEach(function (input) {
-        console.log(input);
-        if (input.value !== ""){
-            input.style.border = "1px solid #00C22B";
-        } else if (input.value === ""){
-            input.style.border = "1px solid #F52E2E";
-            avisos.forEach(function (aviso) {
-                aviso.classList.remove('opacity')
-            })
-        }
+        if (input.value === "") {
+            input.classList.remove('accepted');
+            input.classList.add('erro');
+            error.forEach(function (messageError) {
+                messageError.classList.remove('error-message'); // Mostrar a mensagem de erro
+            });
+        } else if (input.value !== ""){
+            input.classList.remove('erro');
+            input.classList.add('accepted');
+            error.forEach(function (messageError) {
+                messageError.classList.add('error-message'); // Esconder a mensagem de erro
+            });
+        };
     });
 });
