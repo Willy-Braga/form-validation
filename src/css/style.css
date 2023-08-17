@@ -54,16 +54,16 @@ html{
     background-color: #fff;
     width: 340px;
     height: 378px;
+    border-radius: 5px;
 }
 
 .form{
     margin: 20px;
 }
 
-.container-form #nome, #email, #telefone, #mensagem{
+.container-form .form-envio{
     padding: 8px 9px;
     border-radius: 5px;
-    border: 1px solid #000;
     width: 299px;
     text-align: start;
     resize: none;
@@ -85,11 +85,24 @@ html{
     cursor: pointer;
     margin-top: 10px;
 }
-.opacity{
+
+.btn:hover{
+    background-color: #3ccc4d;
+}
+
+.error-message{
     opacity: 0;
 }
 
 .form p{
     color: #F52E2E;
     margin: 5px;
+}
+
+.erro{
+    border: 2px solid #F52E2E;
+}
+
+.accepted{
+    border: 2px solid #3CCC87;
 }
